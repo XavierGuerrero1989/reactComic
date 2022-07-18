@@ -12,7 +12,7 @@ function BotonCarrito() {
   
     return (
       <>
-        <Button variant="light" onClick={handleShow}>
+        <Button variant="light" onClick={handleShow} className="navButton">
           <ImgCarrito />
         </Button>
   

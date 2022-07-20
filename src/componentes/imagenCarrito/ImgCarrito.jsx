@@ -1,5 +1,5 @@
 import React from 'react'
-import carrin from '../../imgs/cart.png'
+import carrin from '../../imgs/vacio.png'
 
 const ImgCarrito = () => {
   return (

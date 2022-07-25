@@ -19,7 +19,7 @@ function App() {
         
       </div>
 
-      <div className="row itemListCtn">
+      <div className="row d-flex justify-content-center">
         
           < ItemCtn />
         

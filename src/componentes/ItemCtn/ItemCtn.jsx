@@ -13,7 +13,7 @@ import Iron1 from '../../imgs/iron_man126.jpg';
 import Iron2 from '../../imgs/ironmam598.jpg';
 import Capi1 from '../../imgs/calivinglegend1.jpg';
 import Capi2 from '../../imgs/La-búsqueda-de-la-Gema-de-Sangre-portada.jpg';
-import Esperar from '../spinner/spinner';
+
 
 const ItemCtn = () => {
   const [comics, setComics]=useState([])

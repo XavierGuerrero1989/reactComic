@@ -18,7 +18,9 @@ const ItemCtn = () => {
   const [comics, setComics]=useState([])
 
   useEffect(()=>{
-    setComics([
+
+    setTimeout(() => {
+        setComics([
       {
           "id":"1",
           "titulo":"Action Comics 1",
@@ -142,6 +144,8 @@ const ItemCtn = () => {
   
   ]
     )
+    }, 2000)
+    
   },[])
 
 

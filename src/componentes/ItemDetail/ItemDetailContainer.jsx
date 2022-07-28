@@ -1,11 +1,12 @@
 import React from 'react'
+import { useState } from 'react';
+import { useEffect } from 'react';
 import { ItemDetail } from './ItemDetail';
-import Item from '../Item/Item';
+import { ItemDetailList } from './ItemDetailList';
 
+const ItemDetailContainer = () => {
 
-const ItemDetailContainer = (comics) => {
-
-    const [comicDetail, setComicDetail]=useState([])
+    const [comicDetail, setComicDetail] = useState([])
 
   useEffect(()=>{
 
@@ -15,7 +16,6 @@ const ItemDetailContainer = (comics) => {
               "titulo":"Action Comics 1",
               "heroe":"Super Man",
               "descripcion":"Primera aparición de Super Man",
-              "imagen": Super1 ,
               "categoria":"DC",
               "stock":"10",
               "precio":"5000"
@@ -25,7 +25,6 @@ const ItemDetailContainer = (comics) => {
               "titulo":"Super Man 75: La muerte de Super Man",
               "heroe":"Super Man",
               "descripcion":"Volumen donde se presenta la muerte de Super Man",
-              "imagen":Super2,
               "categoria":"DC",
               "stock":"10",
               "precio":"5000"
@@ -35,7 +34,6 @@ const ItemDetailContainer = (comics) => {
               "titulo":"Flashpoint",
               "heroe":"Flash",
               "descripcion":"Evento integral del DC universe, protagonizado por Flash",
-              "imagen":Flash1,
               "categoria":"DC",
               "stock":"10",
               "precio":"5000"
@@ -45,7 +43,6 @@ const ItemDetailContainer = (comics) => {
               "titulo":"Flash 324: La muerte de Reverse Flash",
               "heroe":"Flash",
               "descripcion":"Episodio donde Flash elimina a Reverse Flash accidentalmente",
-              "imagen":Flash2,
               "categoria":"DC",
               "stock":"10",
               "precio":"5000"
@@ -55,7 +52,6 @@ const ItemDetailContainer = (comics) => {
               "titulo":"Aquaman de Peter David",
               "heroe":"Aquaman",
               "descripcion":"Volumen recopilatorio del Aquaman de Peter David",
-              "imagen":Aquaman1,
               "categoria":"DC",
               "stock":"10",
               "precio":"5000"
@@ -65,7 +61,6 @@ const ItemDetailContainer = (comics) => {
               "titulo":"Aquaman 29",
               "heroe":"Aquaman",
               "descripcion":"Episodio 29 de la serie original de Aquaman",
-              "imagen":Aquaman2,
               "categoria":"DC",
               "stock":"10",
               "precio":"5000"
@@ -75,7 +70,6 @@ const ItemDetailContainer = (comics) => {
               "titulo":"Thor 274",
               "heroe":"Thor",
               "descripcion":"Thor 274",
-              "imagen":Thor1,
               "categoria":"Marvel",
               "stock":"10",
               "precio":"5000"
@@ -85,7 +79,6 @@ const ItemDetailContainer = (comics) => {
               "titulo":"Thor 297",
               "heroe":"Thor",
               "descripcion":"Thor 297",
-              "imagen":Thor2,
               "categoria":"Marvel",
               "stock":"10",
               "precio":"5000"
@@ -95,7 +88,6 @@ const ItemDetailContainer = (comics) => {
               "titulo":"The Invincible Iron Man 126",
               "heroe":"Iron Man",
               "descripcion":"The Invincible Iron Man 126",
-              "imagen":Iron1,
               "categoria":"Marvel",
               "stock":"10",
               "precio":"5000"
@@ -105,7 +97,6 @@ const ItemDetailContainer = (comics) => {
               "titulo":"The Invincible Iron Man 598",
               "heroe":"Iron Man",
               "descripcion":"The Invincible Iron Man 598",
-              "imagen":Iron2,
               "categoria":"Marvel",
               "stock":"10",
               "precio":"5000"
@@ -115,7 +106,6 @@ const ItemDetailContainer = (comics) => {
               "titulo":"Captain America Living Leyend 1",
               "heroe":"Capitan America",
               "descripcion":"Captain America Living Leyend 1",
-              "imagen":Capi1,
               "categoria":"Marvel",
               "stock":"10",
               "precio":"5000"
@@ -125,7 +115,6 @@ const ItemDetailContainer = (comics) => {
               "titulo":"Captain America: La busqueda de la gema de sangre",
               "heroe":"Capitan America",
               "descripcion":"Captain America: La busqueda de la gema de sangre",
-              "imagen":Capi2,
               "categoria":"Marvel",
               "stock":"10",
               "precio":"5000"
@@ -148,7 +137,7 @@ const ItemDetailContainer = (comics) => {
 return (
   
 
-    <ItemList comicDetail={comicDetail}/>
+    <ItemDetailList comicDetail={comicDetail} />
     
   
 

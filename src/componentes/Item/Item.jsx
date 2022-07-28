@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { useState, useEffect } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
+import ItemDetailContainer from '../ItemDetail/ItemDetailContainer';
 
 
 const Item = ({ comic }) => { 
@@ -31,7 +32,7 @@ const Item = ({ comic }) => {
                         <Accordion.Item eventKey="0">
                             <Accordion.Header>{JSON.stringify(comic.titulo)}</Accordion.Header>
                             <Accordion.Body>
-                                
+                                <ItemDetailContainer />
                             </Accordion.Body>
                         </Accordion.Item>
                 </Accordion>     

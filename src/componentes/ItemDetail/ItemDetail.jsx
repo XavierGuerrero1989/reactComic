@@ -1,9 +1,17 @@
 import React from 'react'
+import Card from 'react-bootstrap/Card';
 
-export const ItemDetail = (comicDetail, comic) => {
+export const ItemDetail = (comicDetailItem) => {
+
+    
+
   return (
 
-    <div></div>
+    <div>
+        {JSON.stringify(comicDetailItem.heroe)}
+
+
+    </div>
   
     )
 }

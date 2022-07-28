@@ -1,7 +1,8 @@
 import './App.scss'
 import Hero from './componentes/HeroSection/Hero'
-import ItemCtn from './componentes/ItemCtn/ItemCtn'
+import ItemListContainer from './componentes/ItemContainer/ItemListContainer'
 import Nabvar from './componentes/nabvar/Nabvar'
+import { TituloSeccion } from './componentes/TituloDeSeccion/TituloSeccion'
 
 function App() {
 
@@ -21,7 +22,13 @@ function App() {
 
       <div className="row d-flex justify-content-center">
         
-          < ItemCtn />
+          < TituloSeccion />
+        
+      </div>
+
+      <div className="row d-flex justify-content-center">
+        
+          < ItemListContainer />
         
       </div>
     </div>

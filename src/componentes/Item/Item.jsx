@@ -1,47 +1,42 @@
 import React from 'react'
-// import { getStock } from '../stock/stock'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { useState, useEffect } from 'react';
+import Accordion from 'react-bootstrap/Accordion';
 
 
-const Product = ({ titulo, heroe, imagen, stock, precio, descripcion }) => { 
-
-    
+const Item = ({ comic }) => { 
 
     
 
     
     const [count, setCounter] = useState(1) 
-  
 
     
-
+    
+    
   return (
     
 
-
         <div className='col-md-3 d-flex justify-content-center stockCard'>
 
+        
 
                 <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={imagen} className="stockImg"/>
+                <Card.Img variant="top" src={comic.imagen} className="stockImg"/>
                 <Card.Body>
-                    <Card.Title> { titulo }  </Card.Title>
-                    <Card.Text>
-                    Heroe: { heroe }
-                    </Card.Text>
-                    <Card.Text>
-                    { descripcion }
-                    </Card.Text>
-                    <Card.Text>
-                    Stock Disponible: { stock }
-                    </Card.Text>
-                    <Card.Text>
-                    Precio: { precio }
-                    </Card.Text>
+                <Accordion>
+                        <Accordion.Item eventKey="0">
+                            <Accordion.Header>{JSON.stringify(comic.titulo)}</Accordion.Header>
+                            <Accordion.Body>
+                                
+                            </Accordion.Body>
+                        </Accordion.Item>
+                </Accordion>     
+
+                    
                     <form>
                             <InputGroup className="mb-3" >
                                         <Button variant="outline-secondary" id="button-addon" onClick={
@@ -57,7 +52,7 @@ const Product = ({ titulo, heroe, imagen, stock, precio, descripcion }) => {
                                         type='number' value={count} />
                                         <Button variant="outline-secondary" id="button-addon2" onClick={
                                             function () {
-                                                if (count < stock) {
+                                                if (count < (comic.stock)) {
                                                     setCounter(count + 1)
                                                 }
                                             }
@@ -78,4 +73,4 @@ const Product = ({ titulo, heroe, imagen, stock, precio, descripcion }) => {
   );
 }
 
-export default Product; 
+export default Item; 

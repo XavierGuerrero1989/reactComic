@@ -1,28 +1,15 @@
 import React from 'react'
-import ProductList from '../ProductList/ProductList';
-import { useState, useEffect } from 'react';
-import Super1 from '../../imgs/superman1.jpg';
-import Super2 from '../../imgs/superman75.jpg';
-import Flash1 from '../../imgs/flashpoint.jpg';
-import Flash2 from '../../imgs/flash324.jpg';
-import Aquaman1 from '../../imgs/Aquaman_de_Peter_David.jpg';
-import Aquaman2 from '../../imgs/dc-aquaman-29.jpg';
-import Thor1 from '../../imgs/thor274.jpg';
-import Thor2 from '../../imgs/thor297.jpg';
-import Iron1 from '../../imgs/iron_man126.jpg';
-import Iron2 from '../../imgs/ironmam598.jpg';
-import Capi1 from '../../imgs/calivinglegend1.jpg';
-import Capi2 from '../../imgs/La-búsqueda-de-la-Gema-de-Sangre-portada.jpg';
+import { ItemDetail } from './ItemDetail';
+import Item from '../Item/Item';
 
 
-const ItemCtn = () => {
-  const [comics, setComics]=useState([])
+const ItemDetailContainer = (comics) => {
+
+    const [comicDetail, setComicDetail]=useState([])
 
   useEffect(()=>{
 
-    const chequeoComics = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            setComics([
+    let comicsCatalogoDetail = [
           {
               "id":"1",
               "titulo":"Action Comics 1",
@@ -143,41 +130,29 @@ const ItemCtn = () => {
               "stock":"10",
               "precio":"5000"
           }
-      
       ]
-        )
-        }, 4000);
+
+      const searchDetail = new Promise ((resuelve, rechaza) => {
+        setTimeout(() =>{
+          resuelve(comicsCatalogoDetail);
+        }, 2000);
       });
-      function comicResuelto() {
-        return (comics)
-      }
-    
-      function comicRechazado() {
-        console.log('Comic no encontrado')
-      }
-    
-      chequeoComics
-      .then(comicResuelto, comicRechazado)
-    
-  },[])
 
+      searchDetail.then((resuelve) => {
+        setComicDetail(resuelve);
+      });
 
-  
+  }, []);
+
 
 return (
-  <>
-  <div className='row d-flex justify-content-center'>
-    <h1 className='col-md-6'> Bienvenido a X-COMICS.
-     Busca los mejores comics de nuestra tienda y agregalos a tu carrito </h1>
-  </div>
-
-    
-
-    <ProductList comics={comics}/>
   
-  </>
+
+    <ItemList comicDetail={comicDetail}/>
+    
+  
 
 )
 }
-
-export default ItemCtn
+  
+  export default ItemDetailContainer;

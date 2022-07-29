@@ -31,7 +31,7 @@ const Item = ({ comic }) => {
                         <Accordion.Item eventKey="0">
                             <Accordion.Header>{JSON.stringify(comic.titulo)}</Accordion.Header>
                             <Accordion.Body>
-
+ 
                                 <ItemDetailContainer idDelComic={comic.id} />
                                 
                             </Accordion.Body>

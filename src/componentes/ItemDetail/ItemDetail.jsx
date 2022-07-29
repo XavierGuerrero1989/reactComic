@@ -8,7 +8,9 @@ export const ItemDetail = (comicDetailItem) => {
   return (
 
     <div>
-        {JSON.stringify(comicDetailItem.heroe)}
+       
+       
+        {JSON.stringify(comicDetailItem)}
 
 
     </div>

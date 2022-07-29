@@ -3,11 +3,15 @@ import Hero from './componentes/HeroSection/Hero'
 import ItemListContainer from './componentes/ItemContainer/ItemListContainer'
 import Nabvar from './componentes/nabvar/Nabvar'
 import { TituloSeccion } from './componentes/TituloDeSeccion/TituloSeccion'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 
 function App() {
 
 
   return (
+
+  
     <div className='container-fluid App'>
       <div className="row navbar">
         

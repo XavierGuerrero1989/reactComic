@@ -2,11 +2,13 @@ import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { ItemDetail } from './ItemDetail';
-import { ItemDetailList } from './ItemDetailList';
 
-const ItemDetailContainer = () => {
 
-    const [comicDetail, setComicDetail] = useState([])
+const ItemDetailContainer = ( id ) => {
+
+    const [comicDetail, setComicDetail] = useState({})
+
+    const [comicId, setComicID] = useState(id)
 
   useEffect(()=>{
 
@@ -123,7 +125,7 @@ const ItemDetailContainer = () => {
 
       const searchDetail = new Promise ((resuelve, rechaza) => {
         setTimeout(() =>{
-          resuelve(comicsCatalogoDetail);
+          resuelve(JSON.stringify(comicsCatalogoDetail.comicId));
         }, 2000);
       });
 
@@ -131,13 +133,16 @@ const ItemDetailContainer = () => {
         setComicDetail(resuelve);
       });
 
+      
+
   }, []);
 
+  
 
 return (
   
 
-    <ItemDetailList comicDetail={comicDetail} />
+    <ItemDetail comicDetail={comicDetail} />
     
   
 

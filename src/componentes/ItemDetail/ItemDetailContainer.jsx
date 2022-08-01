@@ -129,7 +129,7 @@ const ItemDetailContainer = ( idDelComic ) => {
 
       const searchDetail = new Promise ((resuelve, rechaza) => {
         setTimeout(() =>{
-          resuelve(comicsCatalogoDetail[(idDelComic.idDelComic)-1]);
+          resuelve(comicsCatalogoDetail[(idDelComic)-1]);
         }, 2000);
       });
 

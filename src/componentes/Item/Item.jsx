@@ -13,6 +13,9 @@ const Item = ({ comic }) => {
     
 
     let ruta = '/comic/:' + comic.id
+    let pasajeId = comic.id 
+
+
     const [count, setCounter] = useState(1) 
 
     
@@ -40,7 +43,7 @@ const Item = ({ comic }) => {
                             </Accordion.Body>
                         </Accordion.Item>
                 </Accordion>      */}
-                    <Link to={ ruta } element={< ItemDetailContainer idDelComic={comic.id} />}>
+                    <Link to={ ruta } element={< ItemDetailContainer idDelComic= {pasajeId} />}>
                         <Button variant="success">
                             Ver detalles del Producto
                         </Button>

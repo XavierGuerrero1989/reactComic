@@ -1,11 +1,11 @@
 import React from 'react'
-import heroe from '../../imgs/hero.jpg'
+import heroeImg from '../../imgs/hero.jpg'
 
 
 const Hero = () => {
   return (
-    <div className='Hero' style={{ 
-        backgroundImage: `url(${heroe})`
+    <div className='hero col-md-12' style={{ 
+        backgroundImage: `url(${heroeImg})`
       }}></div>
   )
 }

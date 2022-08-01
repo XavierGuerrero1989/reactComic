@@ -4,15 +4,15 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { useState, useEffect } from 'react';
-import Accordion from 'react-bootstrap/Accordion';
 import ItemDetailContainer from '../ItemDetail/ItemDetailContainer';
+import { Link } from 'react-router-dom';
 
 
 const Item = ({ comic }) => { 
 
     
 
-    
+    let ruta = '/comic/:' + comic.id
     const [count, setCounter] = useState(1) 
 
     
@@ -27,7 +27,10 @@ const Item = ({ comic }) => {
                 <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={comic.imagen} className="stockImg"/>
                 <Card.Body>
-                <Accordion>
+                <Card.Text>
+                    {JSON.stringify(comic.titulo)}
+                </Card.Text>
+                {/* <Accordion>
                         <Accordion.Item eventKey="0">
                             <Accordion.Header>{JSON.stringify(comic.titulo)}</Accordion.Header>
                             <Accordion.Body>
@@ -36,34 +39,12 @@ const Item = ({ comic }) => {
                                 
                             </Accordion.Body>
                         </Accordion.Item>
-                </Accordion>     
-
-                    
-                    <form>
-                            <InputGroup className="mb-3" >
-                                        <Button variant="outline-secondary" id="button-addon" onClick={
-                                            function () {
-                                                if (count > 1) {
-                                                    setCounter(count - 1)
-                                                }
-                                            }
-                                            }>
-                                        -
-                                        </Button>
-                                        <Form.Control
-                                        type='number' value={count} />
-                                        <Button variant="outline-secondary" id="button-addon2" onClick={
-                                            function () {
-                                                if (count < (comic.stock)) {
-                                                    setCounter(count + 1)
-                                                }
-                                            }
-                                            }>
-                                        +
-                                        </Button>
-                            </InputGroup>
-                            <Button variant="primary">Agregar al carrito</Button>
-                    </form>
+                </Accordion>      */}
+                    <Link to={ ruta } element={< ItemDetailContainer idDelComic={comic.id} />}>
+                        <Button variant="success">
+                            Ver detalles del Producto
+                        </Button>
+                    </Link>
                 </Card.Body>
                 </Card>
         

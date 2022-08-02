@@ -7,65 +7,52 @@ import Button from 'react-bootstrap/Button';
 
 export const ItemDetail = (comicDetail) => {
 
-  const [NuevoObjeto, setNuevoObjeto] = useState({})
+  console.log(comicDetail.comicDetail.heroe)
 
-  const [count, setCounter] = useState(1) 
-
-  useEffect(()=>{
-
-    setNuevoObjeto(comicDetail)
-
-    console.log(NuevoObjeto)
-
-  })
-
+  const [count, setCounter] = useState(1)
+ 
   return (
 
-    <div>
-
-      <Card.Text>
-          Heroe: {NuevoObjeto.comicDetail.heroe}
-        </Card.Text>
-        <Card.Text>
-          Descripcion: {NuevoObjeto.comicDetail.descripcion}
-        </Card.Text>
-        <Card.Text>
-          Categoria: {NuevoObjeto.comicDetail.idCategoria}
-        </Card.Text>
-        <Card.Text>
-          Stock: {NuevoObjeto.comicDetail.stock}
-        </Card.Text>
-        <Card.Text>
-          Precio: {NuevoObjeto.comicDetail.precio}
-      </Card.Text>
-
-        <form>
-                            <InputGroup className="mb-3" >
-                                        <Button variant="outline-secondary" id="button-addon" onClick={
-                                            function () {
-                                                if (count > 1) {
-                                                    setCounter(count - 1)
-                                                }
-                                            }
-                                            }>
-                                        -
-                                        </Button>
-                                        <Form.Control
-                                        type='number' value={count} />
-                                        <Button variant="outline-secondary" id="button-addon2" onClick={
-                                            function () {
-                                                if (count < (NuevoObjeto.comicDetail.stock)) {
-                                                    setCounter(count + 1)
-                                                }
-                                            }
-                                            }>
-                                        +
-                                        </Button>
-                            </InputGroup>
-                            <Button variant="primary">Agregar al carrito</Button>
-                    </form>
-
+    <div className='container-fluid'>
+      <div className='row justify-content-center align-items-center'>
+        <img src={comicDetail.comicDetail.imagen} className='col-md-6 detail__img' alt="imagen del comic" />
+        <div className="col-md-3 text-center">
+          <h2 className='detail__titulo'> {comicDetail.comicDetail.titulo}</h2>
+          <h3 className='detail__subtitulo'>Heroe: {comicDetail.comicDetail.heroe}</h3>
+          <h3 className='detail__subtitulo'>Descripcion: {comicDetail.comicDetail.descripcion}</h3>
+          <h3 className='detail__subtitulo'>Stock: {comicDetail.comicDetail.stock}</h3>
+          <h3 className='detail__subtitulo'>Precio: ${comicDetail.comicDetail.precio} </h3>
+          <div className='col-md-12'>
+            <form>
+            <InputGroup className="mb-3" >
+              <Button variant="outline-secondary" id="button-addon" onClick={
+                function () {
+                  if (count > 1) {
+                    setCounter(count - 1)
+                  }
+                }
+              }>
+              -
+              </Button>
+              <Form.Control type='number' value={count} />
+                <Button variant="outline-secondary" id="button-addon2" onClick={
+                  function () {
+                  if (count < (comicDetail.comicDetail.stock)) {
+                  setCounter(count + 1)
+                  }
+                  }
+                }>
+                +
+                </Button>
+              </InputGroup>
+              <Button variant="success">Agregar al carrito</Button>
+          </form> 
+          </div>
+          
+        </div>
+      </div>
     </div>
-  
+
+    
     )
 }

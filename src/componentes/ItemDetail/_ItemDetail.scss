@@ -1,0 +1,23 @@
+@import '../../scss/abstracts/variables';
+
+.detail{
+
+    &__img{
+        width: 60vh;
+        margin: 15px;
+        border-radius: 40px 40px 40px 40px;
+    }
+
+    &__titulo{
+        font-family: $fontnormal;
+        font-size: 3rem;
+        margin: 20px;
+    }
+
+    &__subtitulo{
+        font-family: $fontnormal;
+        font-size: 2rem;
+        margin: 10px;
+    }
+
+}

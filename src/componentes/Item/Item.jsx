@@ -12,13 +12,15 @@ const Item = ({ comic }) => {
 
     
 
-    let ruta = '/comic/:' + comic.id
-    let pasajeId = comic.id 
-
+    let ruta = '/comic/' + comic.id
+    
+    const [idHeredado, setidHeredado] = useState()
 
     const [count, setCounter] = useState(1) 
 
-    
+    useEffect(() => {
+        setidHeredado(comic.id)
+    }, [])
     
   return (
     
@@ -43,7 +45,7 @@ const Item = ({ comic }) => {
                             </Accordion.Body>
                         </Accordion.Item>
                 </Accordion>      */}
-                    <Link to={ ruta } element={< ItemDetailContainer idDelComic= {pasajeId} />}>
+                    <Link to={ ruta } element={< ItemDetailContainer idDelComic= {idHeredado} />}>
                         <Button variant="success">
                             Ver detalles del Producto
                         </Button>

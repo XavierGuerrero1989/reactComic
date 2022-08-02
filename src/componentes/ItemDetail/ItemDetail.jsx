@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
@@ -7,28 +7,36 @@ import Button from 'react-bootstrap/Button';
 
 export const ItemDetail = (comicDetail) => {
 
-  console.log(comicDetail)
+  const [NuevoObjeto, setNuevoObjeto] = useState({})
 
   const [count, setCounter] = useState(1) 
+
+  useEffect(()=>{
+
+    setNuevoObjeto(comicDetail)
+
+    console.log(NuevoObjeto)
+
+  })
 
   return (
 
     <div>
 
       <Card.Text>
-          Heroe: {comicDetail.comicDetail.heroe}
+          Heroe: {NuevoObjeto.comicDetail.heroe}
         </Card.Text>
         <Card.Text>
-          Descripcion: {comicDetail.comicDetail.descripcion}
+          Descripcion: {NuevoObjeto.comicDetail.descripcion}
         </Card.Text>
         <Card.Text>
-          Categoria: {comicDetail.comicDetail.idCategoria}
+          Categoria: {NuevoObjeto.comicDetail.idCategoria}
         </Card.Text>
         <Card.Text>
-          Stock: {comicDetail.comicDetail.stock}
+          Stock: {NuevoObjeto.comicDetail.stock}
         </Card.Text>
         <Card.Text>
-          Precio: {comicDetail.comicDetail.precio}
+          Precio: {NuevoObjeto.comicDetail.precio}
       </Card.Text>
 
         <form>
@@ -46,7 +54,7 @@ export const ItemDetail = (comicDetail) => {
                                         type='number' value={count} />
                                         <Button variant="outline-secondary" id="button-addon2" onClick={
                                             function () {
-                                                if (count < (comicDetail.stock)) {
+                                                if (count < (NuevoObjeto.comicDetail.stock)) {
                                                     setCounter(count + 1)
                                                 }
                                             }

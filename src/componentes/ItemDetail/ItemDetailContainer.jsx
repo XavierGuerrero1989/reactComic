@@ -5,18 +5,20 @@ import { ItemDetail } from './ItemDetail';
 import { useParams } from 'react-router-dom';
 
 
-const ItemDetailContainer = ( idDelComic ) => {
+const ItemDetailContainer = () => {
 
-    console.log(idDelComic)
+    
 
     const [comicId, setComicId] = useState()
     const {idItem} = useParams()
+
+   
 
   useEffect(()=>{
 
     let comicsCatalogoDetail = [
           {
-            id: 1,
+            idItem: 1,
               titulo:"Action Comics 1",
               heroe:"Super Man",
               descripcion:"Primera aparición de Super Man",
@@ -125,11 +127,13 @@ const ItemDetailContainer = ( idDelComic ) => {
           }
       ]
 
-      
-
       const searchDetail = new Promise ((resuelve, rechaza) => {
         setTimeout(() =>{
-          resuelve(comicsCatalogoDetail[(idDelComic)-1]);
+          if(idItem){
+            resuelve(comicsCatalogoDetail[idItem-1]);
+          } else {
+            resuelve(404)
+          }
         }, 2000);
       });
 
@@ -137,11 +141,11 @@ const ItemDetailContainer = ( idDelComic ) => {
         setComicId(resuelve);
       });
 
-      
-
-  }, []);
+     
+  }, [idItem]);
 
   
+
 
 return (
   

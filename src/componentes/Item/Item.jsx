@@ -15,7 +15,6 @@ const Item = ({ comic }) => {
     
     const [idHeredado, setidHeredado] = useState()
 
-    const [count, setCounter] = useState(1) 
 
     useEffect(() => {
         setidHeredado(comic.id)

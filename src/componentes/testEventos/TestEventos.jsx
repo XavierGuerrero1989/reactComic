@@ -1,33 +1,26 @@
 import React from 'react'
+import { useState } from 'react';
+import Hero from '../HeroSection/Hero';
+import { ItemCount } from '../ItemCount/ItemCount';
+import { ItemDetail } from '../ItemDetail/ItemDetail';
 
 export const TestEventos = () => {
 
-    function handleOnChange (e) {
-        switch (e.key) {
-            case "a":
-                e.preventDefault();
-                break;
-            case "e":
-                e.preventDefault();
-                break;
-            case "i":
-                e.preventDefault();
-                break;
-            case "o":
-                e.preventDefault();
-                break;
-            case "u":
-                e.preventDefault();
-                break;
-            default:
-                // nada
-                break;
-        }
+    const [hidden, setHidden] = useState(true);
+
+    function handleOnClick () {
+        setHidden(s => !s)
     }
 
   return (
     <div>
-        <input onChange={handleOnChange}></input>
+      
+      {!hidden ? < ItemCount /> : null}
+      {hidden ? < Hero /> :null}
+      <button onClick={handleOnClick}>
+        react show hide component
+      </button>
     </div>
-  )
+  );
 }
+

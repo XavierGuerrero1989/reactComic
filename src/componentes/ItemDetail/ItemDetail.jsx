@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react'
-import Card from 'react-bootstrap/Card';
-import { useState } from 'react';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import { ItemCount } from '../ItemCount/ItemCount';
 
 export const ItemDetail = (comicDetail) => {
 
-  console.log(comicDetail.comicDetail.heroe)
+  const [irAlCarrito, setIrAlCarrito] = useState(false)
 
-  const [count, setCounter] = useState(1)
- 
+  const handleOnClick = (count) => {
+    setIrAlCarrito(true);
+}
+
   return (
 
     <div className='container-fluid'>
@@ -22,33 +22,16 @@ export const ItemDetail = (comicDetail) => {
           <h3 className='detail__subtitulo'>Descripcion: {comicDetail.comicDetail.descripcion}</h3>
           <h3 className='detail__subtitulo'>Stock: {comicDetail.comicDetail.stock}</h3>
           <h3 className='detail__subtitulo'>Precio: ${comicDetail.comicDetail.precio} </h3>
-          <div className='col-md-12'>
-            <form>
-            <InputGroup className="mb-3" >
-              <Button variant="outline-secondary" id="button-addon" onClick={
-                function () {
-                  if (count > 1) {
-                    setCounter(count - 1)
-                  }
-                }
-              }>
-              -
-              </Button>
-              <Form.Control type='number' value={count} />
-                <Button variant="outline-secondary" id="button-addon2" onClick={
-                  function () {
-                  if (count < (comicDetail.comicDetail.stock)) {
-                  setCounter(count + 1)
-                  }
-                  }
-                }>
-                +
-                </Button>
-              </InputGroup>
-              <Button variant="success">Agregar al carrito</Button>
-          </form> 
+          <div>
+          {
+            irAlCarrito
+            ? <Link to='/cart'><Button variant="success">Finalizar la Compra</Button></Link>
+            : < ItemCount stockDisponible={comicDetail.comicDetail.stock} onclick={handleOnClick} />
+          }
+
+          {/* < ItemCount stockDisponible={comicDetail.comicDetail.stock} /> */}
           </div>
-          
+
         </div>
       </div>
     </div>

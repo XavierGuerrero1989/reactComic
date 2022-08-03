@@ -13,7 +13,8 @@ function BotonCarrito() {
     return (
       <>
         <Button variant="light" onClick={handleShow} className="navButton">
-          <ImgCarrito />
+          <ImgCarrito /> 
+          
         </Button>
   
         <Offcanvas show={show} onHide={handleClose}>

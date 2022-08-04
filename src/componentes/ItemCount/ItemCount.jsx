@@ -1,5 +1,4 @@
 import React from 'react'
-import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -9,7 +8,6 @@ export const ItemCount = ( {stockDisponible, onclick }) => {
 
     console.log(onclick)
     const [count, setCounter] = useState(1)
-
 
   return (
     <div className='col-md-12'>

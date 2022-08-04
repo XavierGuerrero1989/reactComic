@@ -7,7 +7,7 @@ export const ItemDetail = (comicDetail) => {
 
   const [irAlCarrito, setIrAlCarrito] = useState(false)
 
-  const handleOnClick = (count) => {
+  const handleOnClick = () => {
     setIrAlCarrito(true);
 }
 
@@ -26,7 +26,7 @@ export const ItemDetail = (comicDetail) => {
           {
             irAlCarrito
             ? <Link to='/cart'><Button variant="success">Finalizar la Compra</Button></Link>
-            : < ItemCount stockDisponible={comicDetail.comicDetail.stock} onclick={handleOnClick} />
+            : < ItemCount stockDisponible={comicDetail.comicDetail.stock} onclickevent={handleOnClick} />
           }
 
           {/* < ItemCount stockDisponible={comicDetail.comicDetail.stock} /> */}

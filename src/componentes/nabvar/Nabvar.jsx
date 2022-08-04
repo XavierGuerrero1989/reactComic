@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import BotonCarrito from '../botonCarrito/BotonCarrito';
 import BotonLogin from '../botonLogin/BotonLogIn';
-import Hero from '../HeroSection/Hero';
+
 
 
 
@@ -31,9 +31,7 @@ const Nabvar = () => {
             < BotonCarrito />
             </div>
           </div>
-          {/* <div className="row Hero">
-              <Hero />
-          </div> */}
+          
     </div>
   )
 }

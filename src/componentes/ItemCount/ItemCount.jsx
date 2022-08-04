@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 
-export const ItemCount = ( stockDisponible, {onclickevent }) => {
+export const ItemCount = ({onclickevent, stockDisponible}) => {
 
     
 
@@ -17,7 +17,7 @@ export const ItemCount = ( stockDisponible, {onclickevent }) => {
     }
 
     function sumaUnidades () {
-      if (count < (stockDisponible.stockDisponible)) {
+      if (count < (stockDisponible)) {
         setCounter(count + 1)
       }
     }

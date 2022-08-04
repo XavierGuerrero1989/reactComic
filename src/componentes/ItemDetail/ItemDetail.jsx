@@ -9,7 +9,7 @@ export const ItemDetail = (comicDetail) => {
 
   const handleOnClick = () => {
     setIrAlCarrito(true);
-}
+  }
 
   return (
 
@@ -29,7 +29,6 @@ export const ItemDetail = (comicDetail) => {
             : < ItemCount stockDisponible={comicDetail.comicDetail.stock} onclickevent={handleOnClick} />
           }
 
-          {/* < ItemCount stockDisponible={comicDetail.comicDetail.stock} /> */}
           </div>
 
         </div>

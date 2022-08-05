@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import { ItemCount } from '../ItemCount/ItemCount';
+import { CartContext } from '../Context/CartContext';
 
 export const ItemDetail = (comicDetail) => {
+  
 
   const [irAlCarrito, setIrAlCarrito] = useState(false)
 
@@ -25,7 +27,7 @@ export const ItemDetail = (comicDetail) => {
           <div>
           {
             irAlCarrito
-            ? <Link to='/cart'><Button variant="success">Finalizar la Compra</Button></Link>
+            ? <Link to='/cart'><Button variant="success" >Finalizar la Compra</Button></Link>
             : < ItemCount stockDisponible={comicDetail.comicDetail.stock} onclickevent={handleOnClick} />
           }
 

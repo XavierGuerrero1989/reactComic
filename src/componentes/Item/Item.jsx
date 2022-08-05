@@ -1,7 +1,6 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
 import { useState, useEffect } from 'react';
 import ItemDetailContainer from '../ItemDetail/ItemDetailContainer';
 import { Link } from 'react-router-dom';
@@ -9,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const Item = ({ comic }) => { 
 
-    
+    console.log(comic)
 
     let ruta = '/comic/' + comic.id
     

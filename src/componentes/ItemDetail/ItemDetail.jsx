@@ -1,34 +1,42 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import { ItemCount } from '../ItemCount/ItemCount';
-import { CartContext } from '../Context/CartContext';
+import { useCartContext } from '../Context/CartContext';
 
-export const ItemDetail = (comicDetail) => {
+export const ItemDetail = ({data}) => {
+
+  
+  const { addProduct } = useCartContext ()
+
   
 
   const [irAlCarrito, setIrAlCarrito] = useState(false)
 
-  const handleOnClick = () => {
-    setIrAlCarrito(true);
+
+  const onAdd = (quantity) => {
+    setIrAlCarrito(true)
+    addProduct(data, quantity)
   }
+ 
+  
 
   return (
 
     <div className='container-fluid'>
       <div className='row justify-content-center align-items-center'>
-        <img src={comicDetail.comicDetail.imagen} className='col-md-6 detail__img' alt="imagen del comic" />
+        <img src={data.imagen} className='col-md-6 detail__img' alt="imagen del comic" />
         <div className="col-md-3 text-center">
-          <h2 className='detail__titulo'> {comicDetail.comicDetail.titulo}</h2>
-          <h3 className='detail__subtitulo'>Heroe: {comicDetail.comicDetail.heroe}</h3>
-          <h3 className='detail__subtitulo'>Descripcion: {comicDetail.comicDetail.descripcion}</h3>
-          <h3 className='detail__subtitulo'>Stock: {comicDetail.comicDetail.stock}</h3>
-          <h3 className='detail__subtitulo'>Precio: ${comicDetail.comicDetail.precio} </h3>
+          <h2 className='detail__titulo'> {data.titulo}</h2>
+          <h3 className='detail__subtitulo'>Heroe: {data.heroe}</h3>
+          <h3 className='detail__subtitulo'>Descripcion: {data.descripcion}</h3>
+          <h3 className='detail__subtitulo'>Stock: {data.stock}</h3>
+          <h3 className='detail__subtitulo'>Precio: ${data.precio} </h3>
           <div>
           {
             irAlCarrito
-            ? <Link to='/cart'><Button variant="success" >Finalizar la Compra</Button></Link>
-            : < ItemCount stockDisponible={comicDetail.comicDetail.stock} onclickevent={handleOnClick} />
+            ? <Link to='/cart'><Button variant="success" onClick={ addProduct } >Finalizar la Compra</Button></Link>
+            : < ItemCount stockDisponible={data.stock} onAdd={onAdd} />
           }
 
           </div>

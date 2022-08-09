@@ -4,7 +4,8 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 
-export const ItemCount = ({onclickevent, stockDisponible}) => {
+
+export const ItemCount = ({onclickevent, stockDisponible, onAdd}) => {
 
     
 
@@ -35,7 +36,7 @@ export const ItemCount = ({onclickevent, stockDisponible}) => {
                 +
                 </Button>
                 </InputGroup>
-                <Button variant="success" onClick={onclickevent}>Agregar al carrito</Button>
+                <Button variant="success" disabled={stockDisponible <= 0} onClick={() => onAdd(count)}>Agregar al carrito</Button>
             </form> 
     </div>
   )

@@ -1,7 +1,6 @@
 import './App.scss'
 import ItemListContainer from './componentes/ItemContainer/ItemListContainer'
 import Nabvar from './componentes/nabvar/Nabvar'
-import { TituloSeccion } from './componentes/TituloDeSeccion/TituloSeccion'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemDetailContainer from './componentes/ItemDetail/ItemDetailContainer';
 import { NotFound } from './componentes/404/NotFound';

@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const Item = ({ comic }) => { 
 
-    console.log(comic)
+    
 
     let ruta = '/comic/' + comic.id
     

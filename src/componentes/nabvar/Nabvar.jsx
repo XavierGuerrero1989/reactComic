@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import BotonCarrito from '../botonCarrito/BotonCarrito';
+import CartWidget from '../CartWidget/CartWidget';
 import BotonLogin from '../botonLogin/BotonLogIn';
 import logoimg from '../../imgs/logo.png'
 
@@ -30,7 +30,7 @@ const Nabvar = () => {
               <Link to='/sobreNosotros' className="navbar__link">Sobre Nosotros</Link>
               </div>
               <div className="col-md-1 text-center ">
-              < BotonCarrito />
+              < CartWidget />
               </div>
             </div>
             

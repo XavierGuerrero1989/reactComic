@@ -31,6 +31,9 @@ function CartWidget() {
       if (cart.length > 0){
         setShowCart(true)
         setShowCartItems(true)
+      } else {
+        setShowCart(false)
+        setShowCartItems(false)
       }
     }, [cart.length])
     

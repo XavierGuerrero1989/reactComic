@@ -15,7 +15,7 @@ function CartWidget() {
       removeProduct,
       addProduct,
       cart,
-      quantityTotal
+      quantityTotal,
     } = useCartContext ()
 
     const [show, setShow] = useState(false);

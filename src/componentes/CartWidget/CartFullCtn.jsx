@@ -11,7 +11,9 @@ export const CartFullCtn = () => {
     <>
 
     {cart.map((product)=>
+
              <ItemCart key= {product.id} product={product}/>
+             
         )}
     </> 
   )

@@ -29,7 +29,12 @@ export const CartProvider = ({children}) => {
 
   const sumaTotal = cart.map(item => item.quantity).reduce((prev, curr) => prev + curr, 0);
 
-  
+  const precioTotal = () => {
+    return cart.reduce((prev, act) => prev + act.quantity * act.precio, 0);
+  }
+
+
+  console.log(sumaTotal)
 
   useEffect(() => {
     if (cart.length > 0){
@@ -47,7 +52,9 @@ export const CartProvider = ({children}) => {
       removeProduct,
       addProduct,
       cart,
-      quantityTotal
+      quantityTotal,
+      precioTotal,
+      
     }}>
       {children}
     </CartContext.Provider>

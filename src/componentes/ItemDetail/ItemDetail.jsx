@@ -35,7 +35,7 @@ export const ItemDetail = ({data}) => {
           <div>
           {
             irAlCarrito
-            ? <Link to='/cart'><Button variant="success" onClick={ addProduct } >Finalizar la Compra</Button></Link>
+            ? <Link to='/cart'><Button variant="success">Resumen de Carrito</Button></Link>
             : < ItemCount stockDisponible={data.stock} onAdd={onAdd} />
           }
 

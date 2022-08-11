@@ -5,8 +5,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemDetailContainer from './componentes/ItemDetail/ItemDetailContainer';
 import { NotFound } from './componentes/404/NotFound';
 import { TestEventos } from './componentes/testEventos/TestEventos';
-import { Carrito } from './componentes/Carrito/Carrito';
 import { CartProvider } from './componentes/Context/CartContext';
+import { CarritoCtn } from './componentes/Carrito/CarritoCtn';
 
 
 function App() {
@@ -22,8 +22,9 @@ function App() {
           <Route path='/categoria/:idCategoria' element={< ItemListContainer />} />
           <Route path='/comic/:idItem' element={<ItemDetailContainer/>} />
           <Route path="/testeventos" element={<TestEventos />} />
-          <Route path="/cart" element={<Carrito />} />
+          <Route path="/cart" element={<CarritoCtn />} />
           <Route path='*' element={< NotFound />} />
+          
           {/* <Route path='/comic/*' element={< NotFound />} /> */}
 
         </Routes>

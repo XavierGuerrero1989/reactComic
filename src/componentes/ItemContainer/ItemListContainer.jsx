@@ -15,6 +15,7 @@ import Capi2 from '../../imgs/La-búsqueda-de-la-Gema-de-Sangre-portada.jpg';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 import { TituloSeccion } from '../TituloDeSeccion/TituloSeccion';
+import { Loading } from '../Loader/Loading';
 
 
 
@@ -22,7 +23,7 @@ const ItemListContainer = () => {
   const [comics, setComics]=useState([])
   const {idCategoria} = useParams()
 
-  
+  const [loading, setLoading] = useState(true)
 
   useEffect(()=>{
 
@@ -153,8 +154,10 @@ const ItemListContainer = () => {
         setTimeout(() =>{
           if(!idCategoria){
             resuelve(comicsCatalogo)
+            setLoading(false)
           } else {
             resuelve(comicsCatalogo.filter(comic => comic.idCategoria === idCategoria))
+            setLoading(false)
           }
           ;
         }, 2000);
@@ -176,7 +179,12 @@ return (
 </div> 
   <div className='container-fluid'>
     <div className='row justify-content-center'>
-      <ItemList comics={comics}/>
+      {
+        loading
+        ? < Loading/>
+        : <ItemList comics={comics}/>
+      }
+      
     </div>
   </div>
     

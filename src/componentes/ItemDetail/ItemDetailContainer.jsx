@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { ItemDetail } from './ItemDetail';
 import { useParams } from 'react-router-dom';
+import { Loading } from '../Loader/Loading';
 import Super1 from '../../imgs/superman1.jpg';
 import Super2 from '../../imgs/superman75.jpg';
 import Flash1 from '../../imgs/flashpoint.jpg';
@@ -146,6 +147,7 @@ const ItemDetailContainer = () => {
   const [data, setData] = useState({})
   const {idItem} = useParams()
 
+  const [loadingDetail, setLoadingDetail] = useState(true)
   
 
   useEffect(()=>{
@@ -153,6 +155,7 @@ const ItemDetailContainer = () => {
     const getData = new Promise(resolve =>{
       setTimeout(() => {
         resolve(comicsDetailCatalogo);
+        setLoadingDetail(false)
       }, 3000);
     }); 
 
@@ -163,8 +166,15 @@ const ItemDetailContainer = () => {
   
 return (
   
+ <>
+  {
+    loadingDetail
+    ? <div className='text-center' style={{margin: 20}}><Loading/></div>
+    :  <ItemDetail data={data} />
+  }
+ </>   
 
-    <ItemDetail data={data} />
+ 
     
   
 
@@ -172,3 +182,4 @@ return (
 }
   
   export default ItemDetailContainer;
+ 

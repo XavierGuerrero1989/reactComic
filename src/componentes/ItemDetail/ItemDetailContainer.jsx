@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { ItemDetail } from './ItemDetail';
 import { useParams } from 'react-router-dom';
-import { Loading } from '../Loader/Loading';
+// import { Loading } from '../Loader/Loading';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
 
 // comicsDetailCatalogo 

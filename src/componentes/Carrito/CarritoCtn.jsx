@@ -20,7 +20,7 @@ export const CarritoCtn = () => {
         setShowCartElements(false)
         setCantidadFinal(0)
       }
-    }, [cart.length])
+    }, [cart.length, quantityTotal])
 
     return (
 

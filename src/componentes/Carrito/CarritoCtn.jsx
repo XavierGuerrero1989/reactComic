@@ -9,7 +9,7 @@ import CompraOk from '../../imgs/FlashOK.png'
 
 export const CarritoCtn = () => {
 
-    const { cart, precioTotal, clearCart, quantityTotal } = useCartContext ()
+    const { cart, precioTotal, clearCart, quantityTotal, setQuantityTotal } = useCartContext ()
   
     const [showCartElements, setShowCartElements] = useState(false)
     const [cantidadFinal, setCantidadFinal] = useState(0)
@@ -36,6 +36,7 @@ export const CarritoCtn = () => {
 
       setShowCartElements(false)
       setShowFinalMsg(true)
+      clearCart()
     }
 
     useEffect(() => {

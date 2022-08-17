@@ -35,4 +35,26 @@
     &__botones{
         margin: 20px;
     }
+
+    &__form{
+        margin: 10px;
+    }
+
+    &__imgfinal{
+        height: 100%;
+    }
+
+    &__finalmsgtitle{
+        font-family: $fontnormal;
+        font-weight: bolder;
+    }
+
+    &__finalmsg{
+        font-family: $fontnormal;
+    }
+
+    &__orderid{
+        color: red;
+        font-weight: bolder;
+    }
 }

@@ -14,7 +14,7 @@ const Item = ({ comic }) => {
     
     const [idHeredado, setidHeredado] = useState()
 
-
+   
     useEffect(() => {
         setidHeredado(comic.id)
     }, [])
@@ -24,7 +24,7 @@ const Item = ({ comic }) => {
 
         <div className='col-md-3 d-flex justify-content-center stockCard'>
                 <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={comic.imagen} className="stockImg"/>
+                <Card.Img variant="top" src={('../src/imgs/'+ comic.imagen )} className="stockImg"/>
                 <Card.Body>
                 <Card.Text>
                     {JSON.stringify(comic.titulo)}

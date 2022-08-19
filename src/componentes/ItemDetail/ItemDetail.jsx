@@ -4,12 +4,14 @@ import Button from 'react-bootstrap/Button';
 import { ItemCount } from '../ItemCount/ItemCount';
 import { useCartContext } from '../Context/CartContext';
 
+
+
 export const ItemDetail = ({data}) => {
 
   
   const { addProduct } = useCartContext ()
 
-  
+  const imagenDetail = data.imagen
 
   const [irAlCarrito, setIrAlCarrito] = useState(false)
 
@@ -25,7 +27,8 @@ export const ItemDetail = ({data}) => {
 
     <div className='container-fluid'>
       <div className='row justify-content-center align-items-center'>
-        <img src={data.imagen} className='col-md-6 detail__img' alt="imagen del comic" />
+        {/* <img src={data.imagen} className='col-md-6 detail__img' alt="imagen del comic" /> */}
+        <img src={imagenDetail} className='col-md-6 detail__img' alt="imagen del comic" />
         <div className="col-md-3 text-center">
           <h2 className='detail__titulo'> {data.titulo}</h2>
           <h3 className='detail__subtitulo'>Heroe: {data.heroe}</h3>

@@ -11,7 +11,8 @@ const ItemListContainer = () => {
   const [data, setData]=useState([])
   const {idCategoria} = useParams()
 
-  // const [loading, setLoading] = useState(true)
+
+  const [loading, setLoading] = useState(true)
 
   useEffect(()=>{
 
@@ -25,6 +26,7 @@ const ItemListContainer = () => {
     } else {
       getDocs(queryCollectiona)
       .then(res => setData(res.docs.map(product => ({id: product.id, ...product.data()}))))
+      setLoading(false)
     }
 
   }, [idCategoria]);
@@ -40,14 +42,14 @@ return (
   <div className='container-fluid'>
     <div className='row justify-content-center'>
 
-    <ItemList data={data}/>
+    
 
-      {/* {
+      {
         loading
         ? < Loading/>
-        : <ItemList comics={comics}/>
+        : <ItemList data={data}/>
       }
-       */}
+      
     </div>
   </div>
     

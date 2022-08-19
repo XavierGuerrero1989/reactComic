@@ -1,62 +1,64 @@
-import React, { Children, useContext, useEffect, useState } from 'react'
+import { addDoc, updateDoc, doc, getFirestore } from "firebase/firestore";
+import React, { Children, useContext, useEffect, useState } from "react";
 const CartContext = React.createContext([]);
-export const useCartContext = () => useContext(CartContext); 
+export const useCartContext = () => useContext(CartContext);
 
-
-export const CartProvider = ({children}) => {
-
-  const [cart, setCart] = useState ([])
-  const [quantityTotal, setQuantityTotal] = useState (0)
-  const [subTotalDinero, setSubTotalDinero] = useState (0)
+export const CartProvider = ({ children }) => {
+  const [cart, setCart] = useState([]);
+  const [quantityTotal, setQuantityTotal] = useState(0);
+  const [subTotalDinero, setSubTotalDinero] = useState(0);
 
   const clearCart = () => {
-    setCart([])
+    setCart([]);
   };
 
   const isInCart = (id) => {
-    return cart.find(comicDetail => comicDetail.id === id) ? true : false;
-  }
+    return cart.find((comicDetail) => comicDetail.id === id) ? true : false;
+  };
 
-  const removeProduct = (id) => setCart(cart.filter(comicDetail => comicDetail.id !== id));
-
+  const removeProduct = (id) =>
+    setCart(cart.filter((comicDetail) => comicDetail.id !== id));
 
   const addProduct = (item, newQuantity) => {
-    const newCart = cart.filter(prod => prod.id !== item.id);
-    newCart.push ({...item, quantity: newQuantity});
-    setCart(newCart)
+    const { quantity = 0 } = cart.find((prod) => prod.id === item.id) || {};
+    const newCart = cart.filter((prod) => prod.id !== item.id);
+    setCart([...newCart, { ...item, quantity: quantity + newQuantity }]);
 
-  } 
+    const db = getFirestore();
+    updateDoc(doc(db, "productos", item.id), {
+      stock: item.stock - newQuantity,
+    });
 
-  const sumaTotal = cart.map(item => item.quantity).reduce((prev, curr) => prev + curr, 0);
+  };
+
+  const sumaTotal = cart
+    .map((item) => item.quantity)
+    .reduce((prev, curr) => prev + curr, 0);
 
   const precioTotal = () => {
     return cart.reduce((prev, act) => prev + act.quantity * act.precio, 0);
-  }
-
-
-  console.log(sumaTotal)
+  };
 
   useEffect(() => {
-    if (cart.length > 0){
-      setQuantityTotal(sumaTotal)
+    if (cart.length > 0) {
+      setQuantityTotal(sumaTotal);
     }
-  }, [cart.length, sumaTotal])
-  
+  }, [cart.length, sumaTotal]);
 
-  
-  
   return (
-    <CartContext.Provider value={{
-      clearCart,
-      isInCart,
-      removeProduct,
-      addProduct,
-      cart,
-      quantityTotal,
-      precioTotal,
-      setQuantityTotal,
-    }}>
+    <CartContext.Provider
+      value={{
+        clearCart,
+        isInCart,
+        removeProduct,
+        addProduct,
+        cart,
+        quantityTotal,
+        precioTotal,
+        setQuantityTotal,
+      }}
+    >
       {children}
     </CartContext.Provider>
-  )
-}
+  );
+};

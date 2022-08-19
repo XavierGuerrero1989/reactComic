@@ -1,60 +1,69 @@
-@import '../../scss/abstracts/_variables.scss';
+@import "../../scss/abstracts/_variables.scss";
 
-.carrito{
+.carrito {
+  &__titulo {
+    font-size: 2.4rem;
+    font-weight: bolder;
+  }
 
-    &__titulo{
-        font-size: 2.4rem;
-        font-weight: bolder;
+  &__totales {
+    font-size: 1.5rem;
+    font-weight: bolder;
+  }
+
+  &__detalles {
+    font-size: 1.3rem;
+  }
+
+  &__img {
+    width: 10vh;
+  }
+
+  &__ic {
+    width: 5vh;
+
+    &:hover {
+      cursor: pointer;
     }
+  }
+  &__row {
+    margin: 20px;
+    font-family: $fontnormal;
+  }
 
-    &__totales{
-        font-size: 1.5rem;
-        font-weight: bolder;
-    }
+  &__botones {
+    margin: 20px;
+  }
 
-    &__detalles{
-        font-size: 1.3rem;
-    }
+  &__form {
+    margin: 10px;
+  }
 
-    &__img{
-        width: 10vh;
-    }
+  &__imgfinal {
+    height: 100%;
+  }
 
-    &__ic{
-        width: 5vh;
+  &__finalmsgtitle {
+    font-family: $fontnormal;
+    font-weight: bolder;
+  }
 
-        &:hover{
-            cursor: pointer;
-        }
-    }
-    &__row{
-        margin: 20px;
-        font-family: $fontnormal;
-    }
+  &__finalmsg {
+    font-family: $fontnormal;
+  }
 
-    &__botones{
-        margin: 20px;
-    }
+  &__orderid {
+    color: red;
+    font-weight: bolder;
+  }
+}
 
-    &__form{
-        margin: 10px;
-    }
+input{
+  background-color: #d1fde4;
+  border: none;
+  border-radius: 5px 5px 5px 5px;
+}
 
-    &__imgfinal{
-        height: 100%;
-    }
-
-    &__finalmsgtitle{
-        font-family: $fontnormal;
-        font-weight: bolder;
-    }
-
-    &__finalmsg{
-        font-family: $fontnormal;
-    }
-
-    &__orderid{
-        color: red;
-        font-weight: bolder;
-    }
+input:invalid {
+  box-shadow: 0 0 5px 1px red;
 }

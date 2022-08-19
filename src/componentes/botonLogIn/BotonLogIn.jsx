@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
-import ImgLog from './ImagenLogIn';
+import React, { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Modal from "react-bootstrap/Modal";
+import ImgLog from "./ImagenLogIn";
 
 function LogInButton() {
   const [show, setShow] = useState(false);
@@ -13,9 +13,7 @@ function LogInButton() {
   return (
     <>
       <Button variant="light" onClick={handleShow}>
-        
-        < ImgLog />
-
+        <ImgLog />
       </Button>
 
       <Modal show={show} onHide={handleClose}>
@@ -33,9 +31,9 @@ function LogInButton() {
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Código Secreto</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
-      </Form.Group>
+              <Form.Label>Código Secreto</Form.Label>
+              <Form.Control type="password" placeholder="Password" />
+            </Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer>

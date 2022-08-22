@@ -16,8 +16,10 @@ export const CartProvider = ({ children }) => {
     return cart.find((comicDetail) => comicDetail.id === id) ? true : false;
   };
 
-  const removeProduct = (id) =>
+  const removeProduct = (id) =>{
     setCart(cart.filter((comicDetail) => comicDetail.id !== id));
+  }
+    
 
   const addProduct = (item, newQuantity) => {
     const { quantity = 0 } = cart.find((prod) => prod.id === item.id) || {};
@@ -28,7 +30,6 @@ export const CartProvider = ({ children }) => {
     updateDoc(doc(db, "productos", item.id), {
       stock: item.stock - newQuantity,
     });
-
   };
 
   const sumaTotal = cart
@@ -44,6 +45,8 @@ export const CartProvider = ({ children }) => {
       setQuantityTotal(sumaTotal);
     }
   }, [cart.length, sumaTotal]);
+
+  
 
   return (
     <CartContext.Provider

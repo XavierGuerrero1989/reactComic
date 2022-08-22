@@ -17,7 +17,7 @@ export const ItemDetail = ({ data }) => {
   const onAdd = (quantity) => {
     setIrAlCarrito(true);
     addProduct(data, quantity);
-    
+  
   };
 
   return (

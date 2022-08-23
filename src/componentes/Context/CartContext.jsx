@@ -5,11 +5,25 @@ export const useCartContext = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    if (localStorage.getItem('cart') === null) {
+      setCart([])
+    } else {
+      setCart(JSON.parse(localStorage.getItem('cart')))
+    }
+  }, [cart])
+
+  console.log(cart)
+  
+
   const [quantityTotal, setQuantityTotal] = useState(0);
   const [subTotalDinero, setSubTotalDinero] = useState(0);
+  const [cartStorage, setCartStorage] = useState([])
 
   const clearCart = () => {
     setCart([]);
+    setCartStorage(localStorage.setItem('cart', JSON.stringify([])))
   };
 
   const isInCart = (id) => {
@@ -18,6 +32,7 @@ export const CartProvider = ({ children }) => {
 
   const removeProduct = (id) =>{
     setCart(cart.filter((comicDetail) => comicDetail.id !== id));
+    setCartStorage(localStorage.setItem('cart', JSON.stringify(cart.filter((comicDetail) => comicDetail.id !== id))))
   }
     
 
@@ -25,6 +40,7 @@ export const CartProvider = ({ children }) => {
     const { quantity = 0 } = cart.find((prod) => prod.id === item.id) || {};
     const newCart = cart.filter((prod) => prod.id !== item.id);
     setCart([...newCart, { ...item, quantity: quantity + newQuantity }]);
+    setCartStorage(localStorage.setItem('cart', JSON.stringify([...newCart, { ...item, quantity: quantity + newQuantity }])))
 
     const db = getFirestore();
     updateDoc(doc(db, "productos", item.id), {

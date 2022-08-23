@@ -35,7 +35,7 @@ function CartWidget() {
         {showCart ? (
           <>
             {" "}
-            <ImgCarritoLleno /> <p> {quantityTotal} </p>{" "}
+            <ImgCarritoLleno /> <p className="navButton__number"> {quantityTotal} </p>{" "}
           </>
         ) : (
           <ImgCarrito />

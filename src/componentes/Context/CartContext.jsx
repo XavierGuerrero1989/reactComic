@@ -2,6 +2,8 @@ import { addDoc, updateDoc, doc, getFirestore } from "firebase/firestore";
 import React, { Children, useContext, useEffect, useState } from "react";
 const CartContext = React.createContext([]);
 export const useCartContext = () => useContext(CartContext);
+import capi from '../../imgs/capitan.png';
+import Swal from "sweetalert2";
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
@@ -12,14 +14,12 @@ export const CartProvider = ({ children }) => {
     } else {
       setCart(JSON.parse(localStorage.getItem('cart')))
     }
-  }, [cart])
-
-  console.log(cart)
+  }, [cart.length])
   
 
   const [quantityTotal, setQuantityTotal] = useState(0);
   const [subTotalDinero, setSubTotalDinero] = useState(0);
-  const [cartStorage, setCartStorage] = useState([])
+  const [cartStorage, setCartStorage] = useState([]);
 
   const clearCart = () => {
     setCart([]);
@@ -46,6 +46,8 @@ export const CartProvider = ({ children }) => {
     updateDoc(doc(db, "productos", item.id), {
       stock: item.stock - newQuantity,
     });
+
+    alert();
   };
 
   const sumaTotal = cart
@@ -62,7 +64,17 @@ export const CartProvider = ({ children }) => {
     }
   }, [cart.length, sumaTotal]);
 
-  
+  const alert = () => {
+    Swal.fire({
+      title: 'Excelente!',
+      text: 'Agregaste el comic a tu carrito con éxito!',
+      imageUrl: capi,
+      imageAlt: 'Custom image',
+      customClass: {
+        buttonsStyling: 'false',
+      }
+    })
+  }
 
   return (
     <CartContext.Provider

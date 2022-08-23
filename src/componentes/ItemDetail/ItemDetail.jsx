@@ -5,6 +5,7 @@ import { ItemCount } from "../ItemCount/ItemCount";
 import { useCartContext } from "../Context/CartContext";
 
 
+
 export const ItemDetail = ({ data }) => {
   const { addProduct, cart } = useCartContext();
 
@@ -12,12 +13,11 @@ export const ItemDetail = ({ data }) => {
 
   const [irAlCarrito, setIrAlCarrito] = useState(false);
 
-
+  
 
   const onAdd = (quantity) => {
     setIrAlCarrito(true);
     addProduct(data, quantity);
-  
   };
 
   return (

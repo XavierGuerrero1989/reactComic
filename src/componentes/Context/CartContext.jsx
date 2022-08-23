@@ -2,20 +2,19 @@ import { addDoc, updateDoc, doc, getFirestore } from "firebase/firestore";
 import React, { Children, useContext, useEffect, useState } from "react";
 const CartContext = React.createContext([]);
 export const useCartContext = () => useContext(CartContext);
-import capi from '../../imgs/capitan.png';
+import capi from "../../imgs/capitan.png";
 import Swal from "sweetalert2";
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    if (localStorage.getItem('cart') === null) {
-      setCart([])
+    if (localStorage.getItem("cart") === null) {
+      setCart([]);
     } else {
-      setCart(JSON.parse(localStorage.getItem('cart')))
+      setCart(JSON.parse(localStorage.getItem("cart")));
     }
-  }, [cart.length])
-  
+  }, [cart.length]);
 
   const [quantityTotal, setQuantityTotal] = useState(0);
   const [subTotalDinero, setSubTotalDinero] = useState(0);
@@ -23,24 +22,36 @@ export const CartProvider = ({ children }) => {
 
   const clearCart = () => {
     setCart([]);
-    setCartStorage(localStorage.setItem('cart', JSON.stringify([])))
+    setCartStorage(localStorage.setItem("cart", JSON.stringify([])));
   };
 
   const isInCart = (id) => {
     return cart.find((comicDetail) => comicDetail.id === id) ? true : false;
   };
 
-  const removeProduct = (id) =>{
+  const removeProduct = (id) => {
     setCart(cart.filter((comicDetail) => comicDetail.id !== id));
-    setCartStorage(localStorage.setItem('cart', JSON.stringify(cart.filter((comicDetail) => comicDetail.id !== id))))
-  }
-    
+    setCartStorage(
+      localStorage.setItem(
+        "cart",
+        JSON.stringify(cart.filter((comicDetail) => comicDetail.id !== id))
+      )
+    );
+  };
 
   const addProduct = (item, newQuantity) => {
     const { quantity = 0 } = cart.find((prod) => prod.id === item.id) || {};
     const newCart = cart.filter((prod) => prod.id !== item.id);
     setCart([...newCart, { ...item, quantity: quantity + newQuantity }]);
-    setCartStorage(localStorage.setItem('cart', JSON.stringify([...newCart, { ...item, quantity: quantity + newQuantity }])))
+    setCartStorage(
+      localStorage.setItem(
+        "cart",
+        JSON.stringify([
+          ...newCart,
+          { ...item, quantity: quantity + newQuantity },
+        ])
+      )
+    );
 
     const db = getFirestore();
     updateDoc(doc(db, "productos", item.id), {
@@ -66,15 +77,15 @@ export const CartProvider = ({ children }) => {
 
   const alert = () => {
     Swal.fire({
-      title: 'Excelente!',
-      text: 'Agregaste el comic a tu carrito con éxito!',
+      title: "Excelente!",
+      text: "Agregaste el comic a tu carrito con éxito!",
       imageUrl: capi,
-      imageAlt: 'Custom image',
+      imageAlt: "Custom image",
       customClass: {
-        buttonsStyling: 'false',
-      }
-    })
-  }
+        buttonsStyling: "false",
+      },
+    });
+  };
 
   return (
     <CartContext.Provider

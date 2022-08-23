@@ -7,7 +7,7 @@
     225deg,
     #ff3cac 0%,
     #784ba0 50%,
-    #2b86c5 100% 
+    #2b86c5 100%
   );
 
   font-family: $fontnormal;
@@ -91,7 +91,6 @@
     }
   }
 
-
   &__link {
     color: white;
     text-decoration: none;
@@ -99,26 +98,25 @@
     border-radius: 5px 5px 5px 5px;
     padding: 8px;
 
-    @include movil{
+    @include movil {
       background-color: transparent;
       font-size: 0.5rem;
-  }
+    }
 
-  @include tablet{
-    background-color: transparent;
-    font-size: 0.8rem;
-}
-
+    @include tablet {
+      background-color: transparent;
+      font-size: 0.8rem;
+    }
   }
 
   &__logo {
     width: 20vh;
 
-    @include movil{
+    @include movil {
       width: 10vh;
     }
-  
-    @include tablet{
+
+    @include tablet {
       width: 10vh;
     }
   }
@@ -128,6 +126,4 @@
     flex-direction: row;
     align-items: center;
   }
-
-
 }

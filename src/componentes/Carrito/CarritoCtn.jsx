@@ -8,7 +8,7 @@ import { BotonVaciar } from "./BotonVaciar";
 import { BotonFinalizar } from "./BotonFinalizar";
 
 export const CarritoCtn = () => {
-  const { cart, precioTotal, clearCart, quantityTotal, setQuantityTotal} =
+  const { cart, precioTotal, clearCart, quantityTotal, setQuantityTotal } =
     useCartContext();
 
   const [showCartElements, setShowCartElements] = useState(false);
@@ -17,16 +17,15 @@ export const CarritoCtn = () => {
   const [name, setName] = useState("");
   const [tel, setTel] = useState("");
   const [email, setEmail] = useState("");
-  const [showFinalizar, setShowFinalizar] = useState(false)
+  const [showFinalizar, setShowFinalizar] = useState(false);
 
   useEffect(() => {
-    if ((tel !== '') && (name !== '') && (email !== '')) {
-      setShowFinalizar(true)
+    if (tel !== "" && name !== "" && email !== "") {
+      setShowFinalizar(true);
     } else {
-      setShowFinalizar(false)
+      setShowFinalizar(false);
     }
-  }, [name, tel, email])
-  
+  }, [name, tel, email]);
 
   const [idOrder, setIdOrder] = useState("");
   const [showFinalMsg, setShowFinalMsg] = useState(false);
@@ -121,7 +120,8 @@ export const CarritoCtn = () => {
                     <div className="row justify-content-center">
                       <input
                         className="text-center carrito__form col-md-2"
-                        type={"text"} required
+                        type={"text"}
+                        required
                         placeholder="nombre completo"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
@@ -130,7 +130,9 @@ export const CarritoCtn = () => {
                     <div className="row justify-content-center">
                       <input
                         className="text-center carrito__form col-md-2"
-                        type={"number"} required minLength="6" 
+                        type={"number"}
+                        required
+                        minLength="6"
                         placeholder="celular"
                         value={tel}
                         onChange={(e) => setTel(e.target.value)}
@@ -139,20 +141,22 @@ export const CarritoCtn = () => {
                     <div className="row justify-content-center">
                       <input
                         className="text-center carrito__form col-md-2"
-                        type={"email"} required
+                        type={"email"}
+                        required
                         placeholder="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                       />
                     </div>
                   </div>
-                  
-                  {
-                    showFinalizar
-                    ? <BotonFinalizar funcionTerminar={terminarCompra} />
-                      
-                    : <><BotonVaciar /></>
-                  }
+
+                  {showFinalizar ? (
+                    <BotonFinalizar funcionTerminar={terminarCompra} />
+                  ) : (
+                    <>
+                      <BotonVaciar />
+                    </>
+                  )}
                 </>
               ) : (
                 <p></p>

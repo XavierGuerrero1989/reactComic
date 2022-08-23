@@ -4,16 +4,12 @@ import Button from "react-bootstrap/Button";
 import { ItemCount } from "../ItemCount/ItemCount";
 import { useCartContext } from "../Context/CartContext";
 
-
-
 export const ItemDetail = ({ data }) => {
   const { addProduct, cart } = useCartContext();
 
   const imagenDetail = data.imagen;
 
   const [irAlCarrito, setIrAlCarrito] = useState(false);
-
-  
 
   const onAdd = (quantity) => {
     setIrAlCarrito(true);

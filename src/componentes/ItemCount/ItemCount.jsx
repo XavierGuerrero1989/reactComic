@@ -7,7 +7,6 @@ import Button from "react-bootstrap/Button";
 
 export const ItemCount = ({ stockDisponible, onAdd }) => {
   const [count, setCounter] = useState(1);
-  
 
   function restaUnidades() {
     if (count > 1) {
@@ -21,7 +20,6 @@ export const ItemCount = ({ stockDisponible, onAdd }) => {
     }
   }
 
-  
   return (
     <div className="col-md-12">
       <form>

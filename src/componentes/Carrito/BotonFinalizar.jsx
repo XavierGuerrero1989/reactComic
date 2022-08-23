@@ -2,7 +2,7 @@ import React from "react";
 import { useCartContext } from "../Context/CartContext";
 import Button from "react-bootstrap/Button";
 
-export const BotonFinalizar= ({ funcionTerminar }) => {
+export const BotonFinalizar = ({ funcionTerminar }) => {
   const { clearCart } = useCartContext();
 
   return (
